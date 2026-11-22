@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mzansi Learn & Earn</title>
+<style>
+body{margin:0;font-family:Arial;background:#0A1A3A;color:#fff}
+header{padding:20px;text-align:center;background:#0A1A3A;border-bottom:3px solid #FFD700}
+h1{color:#FFD700;margin:0;font-size:28px} p{color:#ccc}
+.card{background:#132A5E;margin:15px;padding:18px;border-radius:15px;border:1px solid #FFD700}
+button{background:#FFD700;color:#0A1A3A;border:none;padding:12px 18px;border-radius:10px;font-weight:bold;width:100%;margin-top:10px;font-size:16px}
+select{width:100%;padding:12px;border-radius:10px;font-size:16px}
+.points{background:#FFD700;color:#0A1A3A;padding:10px;text-align:center;font-weight:bold;border-radius:10px;margin:15px}
+</style></head><body>
+<header><h1>🇿🇦 MZANSI LEARN & EARN</h1><p>Grade 9-12 • CAPS • Points Only • No Money</p></header>
+<div class="points">⭐ YOUR POINTS: <span id="pts">0</span> | 🔥 STREAK: <span id="streak">0</span> days</div>
+<div class="card"><h3>1. Choose Grade</h3>
+<select id="grade"><option>Grade 9</option><option>Grade 10</option><option>Grade 11</option><option>Grade 12</option></select></div>
+<div class="card"><h3>2. Choose Subject</h3>
+<button onclick="startQuiz('Maths')">📐 Maths - Start Quiz +10pts</button>
+<button onclick="startQuiz('English')">📚 English - Start Quiz +10pts</button>
+<button onclick="startQuiz('Life Sciences')">🧬 Life Sciences +10pts</button>
+<button onclick="startQuiz('Physical Sciences')">⚗️ Physical Sciences +10pts</button>
+<button onclick="startQuiz('Geography')">🌍 Geography +10pts</button>
+<button onclick="startQuiz('History')">🏛️ History +10pts</button>
+</div>
+<div class="card" id="quiz"><h3>📝 Quiz Area</h3><p id="q">Tap a subject above to start!</p><div id="opts"></div></div>
+<div class="card"><h3>🏆 Leaderboard</h3><p>1. You - <span id="pts2">0</span> pts</p><p>2. Thabo - 120 pts</p><p>3. Naledi - 95 pts</p></div>
+<script>
+let pts=localStorage.getItem('pts')||0;document.getElementById('pts').innerText=pts;document.getElementById('pts2').innerText=pts;
+function startQuiz(sub){document.getElementById('q').innerText=sub+': What is 5 + 5 ?';document.getElementById('opts').innerHTML='<button onclick="right()">10 ✅</button><button onclick="wrong()">11 ❌</button><button onclick="wrong()">9 ❌</button>';}
+function right(){pts=parseInt(pts)+10;localStorage.setItem('pts',pts);document.getElementById('pts').innerText=pts;document.getElementById('pts2').innerText=pts;alert('Correct! +10 Points! 🎉');}
+function wrong(){alert('Try again Boss, you got this! 💪');}
+</script></body></html>
